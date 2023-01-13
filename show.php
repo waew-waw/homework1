@@ -22,42 +22,45 @@
             $sex= $_GET["sex"];
             $status= $_GET["status"];
 
-            if ($age < "16" && $sex == "ผู้ชาย" && $status == "ยังไม่ได้แต่งงาน"){
-                $titaltxt="ด.ช.";
+            if ($age <= "15" && $sex == "ผู้ชาย" && $status == "ยังไม่ได้แต่งงาน"){
+                $prefix="ด.ช.";
                 $sex = "เพศชาย";
                 $status="ยังไม่ได้แต่งงาน";
             }else if($age > "15" && $sex == "ผู้ชาย" && $status == "ยังไม่ได้แต่งงาน"){
-                $titaltxt="นาย";
+                $prefix="นาย";
                 $sex = "ชาย";
                 $status="ยังไม่ได้แต่งงาน";
-            }else if($age > "16" && $sex == "ผู้ชาย" && $status == "แต่งงานแล้ว"){
-                $titaltxt="นาย";
+
+            }else if($age > "15" && $sex == "ผู้ชาย" && $status == "แต่งงานแล้ว"){
+                $prefix="นาย";
                 $sex = "ชาย";
                 $status="แต่งงานแล้ว";
             }else if($age < "16" && $sex == "ผู้ชาย" && $status == "แต่งงานแล้ว"){
-                $titaltxt="ด.ช.";
+                $prefix="ด.ช.";
                 $sex = "ชาย";
                 $status="แต่งงานแล้ว";
-            }else if($age < "16" && $sex == "ผู้หญิง" && $status == "ยังไม่ได้แต่งงาน"){
-                $titaltxt="ด.ญ.";
+
+            }else if($age <= "15" && $sex == "ผู้หญิง" && $status == "ยังไม่ได้แต่งงาน"){
+                $prefix="ด.ญ.";
                 $sex = "หญิง";
                 $status="ยังไม่ได้แต่งงาน";
             }else if($age > "15" && $sex == "ผู้หญิง" && $status == "ยังไม่ได้แต่งงาน"){
-                $titaltxt="นางสาว";
+                $prefix="นางสาว";
                 $sex = "หญิง";
                 $status="ยังไม่ได้แต่งงาน";
-            }else if($age > "15" && $sex == "ผู้หญิง" && $status == "เเต่งงานเเล้ว"){
-                $titaltxt="นาง";
+
+            }else if($age <= "15" && $sex == "ผู้หญิง" && $status == "แต่งงานแล้ว"){
+                $prefix="ด.ญ.";
                 $sex = "หญิง";
-                $status="เเต่งงานเเล้ว";
-            }else if($age < "16" && $sex == "ผู้หญิง" && $status == "เเต่งงานเเล้ว"){
-                $titaltxt="ด.ญ.";
+                $status="แต่งงานแล้ว";
+            }else if($age > "15" && $sex == "ผู้หญิง" && $status == "แต่งงานแล้ว"){
+                $prefix="นาง";
                 $sex = "หญิง";
                 $status="แต่งงานแล้ว";
             }
 
             echo "<font style='font-size:18px'>";
-            echo "<b>ชื่อ:</b> ".$titaltxt.$name."<br>";
+            echo "<b>ชื่อ:</b> ".$prefix.$name."<br>";
             echo "<b>อายุ:</b> ".$age."<br>";
             echo "<b>เพศ:</b> ".$sex."<br>";
             echo "<b>สถานะ:</b> ".$status."<br>";
